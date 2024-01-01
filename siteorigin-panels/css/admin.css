@@ -42,7 +42,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#eee', GradientType=0);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   outline: none;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 .siteorigin-panels-builder .so-tool-button .so-panels-icon {
   font-size: 12px;
@@ -442,12 +442,13 @@
 }
 .siteorigin-panels-builder .so-rows-container .so-row-container .so-cells .cell .widgets-container .so-widget .title .actions {
   background: #feffff;
-  font-size: 12px;
-  position: absolute;
-  top: 5px;
-  right: 0;
   cursor: pointer;
+  font-size: 12px;
+  opacity: 0;
   padding: 2px 8px 2px 15px;
+  position: absolute;
+  right: 0;
+  top: 5px;
   z-index: 10;
 }
 .siteorigin-panels-builder .so-rows-container .so-row-container .so-cells .cell .widgets-container .so-widget .title .actions:hover a {
@@ -482,9 +483,14 @@
     display: inline-block;
   }
 }
-.siteorigin-panels-builder .so-rows-container .so-row-container .so-cells .cell .widgets-container .so-widget:hover .title a {
+.siteorigin-panels-builder .so-rows-container .so-row-container .so-cells .cell .widgets-container .so-widget:hover .title a,
+.siteorigin-panels-builder .so-rows-container .so-row-container .so-cells .cell .widgets-container .so-widget:focus .title a {
   display: inline-block;
   opacity: 0.5;
+}
+.siteorigin-panels-builder .so-rows-container .so-row-container .so-cells .cell .widgets-container .so-widget:hover .actions,
+.siteorigin-panels-builder .so-rows-container .so-row-container .so-cells .cell .widgets-container .so-widget:focus .actions {
+  opacity: 1;
 }
 .siteorigin-panels-builder .so-rows-container .so-row-container .so-cells .cell .widgets-container .so-widget.panel-being-dragged .title .actions {
   display: none;
@@ -705,12 +711,13 @@
 }
 .so-widget.ui-sortable-helper.widget-being-dragged .title .actions {
   background: #feffff;
-  font-size: 12px;
-  position: absolute;
-  top: 5px;
-  right: 0;
   cursor: pointer;
+  font-size: 12px;
+  opacity: 0;
   padding: 2px 8px 2px 15px;
+  position: absolute;
+  right: 0;
+  top: 5px;
   z-index: 10;
 }
 .so-widget.ui-sortable-helper.widget-being-dragged .title .actions:hover a {
@@ -745,9 +752,14 @@
     display: inline-block;
   }
 }
-.so-widget.ui-sortable-helper.widget-being-dragged:hover .title a {
+.so-widget.ui-sortable-helper.widget-being-dragged:hover .title a,
+.so-widget.ui-sortable-helper.widget-being-dragged:focus .title a {
   display: inline-block;
   opacity: 0.5;
+}
+.so-widget.ui-sortable-helper.widget-being-dragged:hover .actions,
+.so-widget.ui-sortable-helper.widget-being-dragged:focus .actions {
+  opacity: 1;
 }
 .so-widget.ui-sortable-helper.widget-being-dragged.panel-being-dragged .title .actions {
   display: none;
@@ -1820,9 +1832,11 @@
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form,
 .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form {
   zoom: 1;
+  align-items: center;
   background: #f3f3f3;
   border: 1px solid #ccc;
   display: flex;
+  gap: 10px;
   justify-content: space-between;
   margin-bottom: 20px;
   padding: 8px;
@@ -1844,8 +1858,22 @@
   .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form,
   .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form,
   .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form {
+    align-items: baseline;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+  }
+  .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column,
+  .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column,
+  .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column .so-row-field,
+  .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column .so-row-field,
+  .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column .so-row-field {
+    width: 100%;
+    margin: 0 0 4px;
   }
 }
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form input,
@@ -1869,6 +1897,11 @@
   outline: none;
   box-shadow: none;
 }
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column input,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column input,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column input {
+  width: 58px;
+}
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form button,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form button,
 .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form button {
@@ -1882,7 +1915,7 @@
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column,
 .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .row-cell-column {
-  flex: 2;
+  flex: 1;
 }
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container,
@@ -1918,7 +1951,42 @@
   display: inline-flex !important;
   height: 24px;
   margin: 0;
-  width: 168px !important;
+  width: 200px;
+}
+@media (min-width: 1426px) and (max-width: 1550px) {
+  .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing {
+    width: 190px;
+  }
+}
+@media (min-width: 1350px) and (max-width: 1426px) {
+  .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing {
+    width: 180px;
+  }
+}
+@media (min-width: 1276px) and (max-width: 1350px) {
+  .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing {
+    width: 160px;
+  }
+}
+@media (min-width: 1182px) and (max-width: 1276px) {
+  .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing {
+    width: 135px;
+  }
+}
+@media (min-width: 1126px) and (max-width: 1182px) {
+  .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing {
+    width: 120px;
+  }
 }
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing.so-active-ratio,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing.so-active-ratio,
@@ -1928,6 +1996,12 @@
 .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing:not(.so-active-ratio):hover {
   cursor: pointer;
   background: #cae7f4;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing:focus,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing:focus,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing:focus {
+  background: #e5f4fb;
+  border-color: #c6d6dc;
 }
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing.so-active-ratio:hover,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing.so-active-ratio:hover,
@@ -1942,21 +2016,28 @@
   display: inline-block !important;
   font-size: 12px;
   margin: 0  !important;
-  min-width: 26px;
+  min-width: 40px;
   padding: 0 !important;
   text-align: center;
-  min-width: 25px;
 }
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing > span:last-of-type,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing > span:last-of-type,
 .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing > span:last-of-type {
   border-right: none;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1125px) {
   .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container,
   .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container,
   .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container {
-    flex-direction: column;
+    display: block;
+  }
+  .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container,
+  .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container,
+  .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container,
+  .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
+  .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing {
+    width: 100%;
   }
   .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize,
   .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize,
@@ -1964,16 +2045,46 @@
     padding-left: 0;
     justify-content: start;
   }
-  .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
-  .block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing,
-  .wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-container .cell-resize-sizing {
-    width: 47%;
-  }
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container .cell-resize-direction,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container .cell-resize-direction,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container .cell-resize-direction {
+  align-items: center;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(1, #f9f9f9));
+  border-radius: 3px;
+  border: 1px solid;
+  color: #777;
+  cursor: pointer;
+  display: flex;
+  height: 24px;
+  line-height: 1;
+  margin: 0;
+  margin-left: 5px;
+  padding: 0 3px;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container .cell-resize-direction:hover,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container .cell-resize-direction:hover,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container .cell-resize-direction:hover,
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container .cell-resize-direction:focus,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container .cell-resize-direction:focus,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form .cell-resize-direction-container .cell-resize-direction:focus {
+  background: #fff;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-set-form[data-cells="5"] .cell-resize-sizing,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-set-form[data-cells="5"] .cell-resize-sizing,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-set-form[data-cells="5"] .cell-resize-sizing {
+  width: 204px;
 }
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-preview,
 .wp-customizer.so-panels-dialog-row-edit .so-content .row-preview {
-  margin: 0 -6px;
   height: 360px;
   position: relative;
   white-space: nowrap;
@@ -1992,13 +2103,34 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview > .preview-cell:first-of-type,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview > .preview-cell:first-of-type,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview > .preview-cell:first-of-type {
+  padding-left: 0;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview > .preview-cell:last-of-type,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview > .preview-cell:last-of-type,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview > .preview-cell:last-of-type {
+  padding-right: 0;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .resize-handle .preview-cell:first-of-type,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .resize-handle .preview-cell:first-of-type,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .resize-handle .preview-cell:first-of-type {
+  padding-right: 0;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .resize-handle .preview-cell:last-of-type,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .resize-handle .preview-cell:last-of-type,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .resize-handle .preview-cell:last-of-type {
+  padding-left: 0;
+}
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell,
 .wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell {
-  display: inline-block;
-  position: relative;
-  padding: 0 6px;
   cursor: pointer;
+  display: inline-block;
+  overflow: visible !important;
+  padding: 0 6px;
+  position: relative;
 }
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in,
@@ -2015,6 +2147,55 @@
   border-color: #9abcc7;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-unit,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-unit,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-unit {
+  left: 8px;
+  position: absolute;
+  top: -2.5px;
+  z-index: 1;
+  line-height: 1;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-container,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-container,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-container {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight,
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input,
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-unit,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-unit,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-unit {
+  color: #5e6d72;
+  font-size: 17px;
+  font-weight: bold;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input[type="text"],
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input[type="text"],
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input[type="text"] {
+  padding-right: 22px;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input[type="number"],
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input[type="number"],
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input[type="number"] {
+  z-index: 2;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight {
+  padding: 10px 22px 10px 5px;
+}
+.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input,
+.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input,
+.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input {
+  padding: 10px 5px;
+}
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight,
 .wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight,
@@ -2023,27 +2204,13 @@
 .wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input {
   background: #fff;
   border: 1px solid #d0d0d0;
-  color: #5e6d72;
-  font-size: 17px;
-  font-weight: bold;
-  left: 50%;
+  cursor: pointer;
   line-height: 1.4em !important;
   margin: -0.95em 0 0 -40px;
-  padding: 10px 0;
+  overflow: hidden;
   position: absolute;
   text-align: center;
-  top: 50%;
   width: 80px;
-  overflow: hidden;
-  cursor: pointer;
-}
-.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight:after,
-.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight:after,
-.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight:after,
-.so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input:after,
-.block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input:after,
-.wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input:after {
-  content: '%';
 }
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight:hover,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight:hover,
@@ -2056,11 +2223,12 @@
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input,
 .wp-customizer.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .preview-cell-in .preview-cell-weight-input {
-  background: #f6f6f6;
-  border: 1px solid #d0d0d0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  background: #f6f6f6;
+  border-radius: 3px;
+  border: 1px solid #d0d0d0;
 }
 .so-panels-dialog.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .resize-handle,
 .block-editor-page.so-panels-dialog-row-edit .so-content .row-preview .preview-cell .resize-handle,
@@ -2626,7 +2794,7 @@
   background: #f4f4f4;
   border: 1px solid #e0e0e0;
   display: block;
-  margin: 10px 0;
+  margin-top: 10px;
   margin-left: 55px;
   max-width: 500px;
   padding: 12px 15px;
@@ -2732,6 +2900,11 @@
 .block-editor-page .so-visual-styles .style-input-wrapper .wp-picker-container .wp-color-result,
 .wp-customizer .so-visual-styles .style-input-wrapper .wp-picker-container .wp-color-result {
   margin: 0;
+}
+.so-panels-dialog .so-visual-styles .style-input-wrapper .wp-picker-container .wp-color-result .wp-color-result-text,
+.block-editor-page .so-visual-styles .style-input-wrapper .wp-picker-container .wp-color-result .wp-color-result-text,
+.wp-customizer .so-visual-styles .style-input-wrapper .wp-picker-container .wp-color-result .wp-color-result-text {
+  height: 28px;
 }
 .so-panels-dialog .so-visual-styles .style-field-measurement .measurement-inputs,
 .block-editor-page .so-visual-styles .style-field-measurement .measurement-inputs,

@@ -516,6 +516,12 @@ class SiteOrigin_Panels_Admin {
 					'row' => array(
 						'add' => __( 'New Row', 'siteorigin-panels' ),
 						'edit' => __( 'Row', 'siteorigin-panels' ),
+						'cellInput' => __( 'Adjust column size of column %s.', 'siteorigin-panels' ),
+						'direction' => __( 'Change column direction to the %s', 'siteorigin-panels' ),
+						// TRANSLATORS: Used by the Column Preset Direction button aria-label.
+						'left'      => __( 'left', 'siteorigin-panels' ),
+						// TRANSLATORS: Used by the Column Preset Direction button aria-label.
+						'right'      => __( 'right', 'siteorigin-panels' ),
 					),
 					'welcomeMessage' => array(
 						'addingDisabled' => __( 'Hmmm... Adding layout elements is not enabled. Please check if Page Builder has been configured to allow adding elements.', 'siteorigin-panels' ),
@@ -1618,6 +1624,11 @@ class SiteOrigin_Panels_Admin {
 				'url' => SiteOrigin_Panels::premium_url( 'plugin/cross-domain-copy-paste' ),
 				'anchor' => __( 'SiteOrigin Premium', 'siteorigin-panels' ),
 			),
+			array(
+				'text' => __( 'Introduce dynamic video backgrounds to any Page Builder row, column, or widget with %link%.', 'siteorigin-panels' ),
+				'url' => SiteOrigin_Panels::premium_url( 'plugin/video-background' ),
+				'anchor' => __( 'SiteOrigin Premium', 'siteorigin-panels' ),
+			)
 		);
 
 		if ( class_exists( 'woocommerce' ) ) {

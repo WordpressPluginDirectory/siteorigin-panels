@@ -3,7 +3,7 @@
 Plugin Name: Page Builder by SiteOrigin
 Plugin URI: https://siteorigin.com/page-builder/
 Description: A drag and drop, responsive page builder that simplifies building your website.
-Version: 2.28.0
+Version: 2.29.1
 Author: SiteOrigin
 Author URI: https://siteorigin.com
 License: GPL3
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Donate link: http://siteorigin.com/page-builder/#donate
 */
 
-define( 'SITEORIGIN_PANELS_VERSION', '2.28.0' );
+define( 'SITEORIGIN_PANELS_VERSION', '2.29.1' );
 
 if ( ! defined( 'SITEORIGIN_PANELS_JS_SUFFIX' ) ) {
 	define( 'SITEORIGIN_PANELS_JS_SUFFIX', '.min' );
@@ -230,6 +230,10 @@ class SiteOrigin_Panels {
 			require_once plugin_dir_path( __FILE__ ) . 'compat/gravity-forms.php';
 		}
 
+		if ( class_exists( 'YIKES_Custom_Product_Tabs' ) ) {
+			require_once plugin_dir_path( __FILE__ ) . 'compat/yikes.php';
+		}
+
 		$load_lazy_load_compat = false;
 		// LazyLoad by WP Rocket.
 		if ( defined( 'ROCKET_LL_VERSION' ) ) {
@@ -254,6 +258,14 @@ class SiteOrigin_Panels {
 
 		if ( defined( 'SEOPRESS_VERSION' ) ) {
 			require_once plugin_dir_path( __FILE__ ) . 'compat/seopress.php';
+		}
+
+		if ( class_exists( 'WP_Event_Manager' ) ) {
+			add_filter( 'display_event_description', array( $this, 'generate_post_content' ), 11 );
+		}
+
+		if ( get_template() == 'vantage' ) {
+			require_once plugin_dir_path( __FILE__ ) . 'compat/vantage.php';
 		}
 	}
 

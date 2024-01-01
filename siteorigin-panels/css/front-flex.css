@@ -39,7 +39,10 @@
 .panel-has-overlay .panel-grid-cell {
   position: relative;
 }
-.panel-grid-cell.panel-has-overlay .panel-background-overlay,
+.panel-grid-cell.panel-has-overlay .so-panel {
+  position: relative;
+  z-index: 1;
+}
 .panel-has-overlay.so-panel .panel-background-overlay {
   z-index: -1;
 }
