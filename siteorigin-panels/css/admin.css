@@ -2730,6 +2730,11 @@
 }
 .so-panels-dialog .so-visual-styles .style-section-fields .style-field-wrapper .style-field .wp-color-result,
 .block-editor-page .so-visual-styles .style-section-fields .style-field-wrapper .style-field .wp-color-result,
+.wp-customizer .so-visual-styles .style-section-fields .style-field-wrapper .style-field .wp-color-result {
+  border-color: #ccc;
+}
+.so-panels-dialog .so-visual-styles .style-section-fields .style-field-wrapper .style-field .wp-color-result,
+.block-editor-page .so-visual-styles .style-section-fields .style-field-wrapper .style-field .wp-color-result,
 .wp-customizer .so-visual-styles .style-section-fields .style-field-wrapper .style-field .wp-color-result,
 .so-panels-dialog .so-visual-styles .style-section-fields .style-field-wrapper .style-field .so-wp-color-field,
 .block-editor-page .so-visual-styles .style-section-fields .style-field-wrapper .style-field .so-wp-color-field,
